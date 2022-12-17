@@ -6,13 +6,16 @@
 #    By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 10:57:28 by eholzer           #+#    #+#              #
-#    Updated: 2022/12/16 15:35:31 by eholzer          ###   ########.fr        #
+#    Updated: 2022/12/17 11:25:28 by eholzer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	fdf
 
-SRCS	=	main.c
+SRCS	=	main.c \
+			fdf_utils_1.c \
+			draw_line.c
+
 OBJS	=	${SRCS:.c=.o}
 
 CC		=	gcc

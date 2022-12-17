@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/16 14:57:04 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/17 11:32:51 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,23 @@ typedef struct s_line_data
 {
 	float	offset;
 	float	slope;
-	int		adjust;
+	int		sign;
+	int		dx;
+	int		dy;
 }	t_line_data;
+
+typedef struct s_mlx
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+}	t_mlx;
+
+// Draw functions
+void	draw_line(t_mlx mlxd, t_point p1, t_point p2);
+
+// Utils functions
+int		abs(int n);
+float	f_abs(float n);
+void	ft_swap(int *a, int *b);
 
 #endif
