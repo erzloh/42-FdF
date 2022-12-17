@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 10:32:23 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/17 11:22:08 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/17 14:52:31 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	draw_vertical_line(t_mlx mlxd, t_point p1, t_point p2)
 	p.y = p1.y;
 	if (p2.y < p1.y)
 		ft_swap(&p1.y, &p2.y);
-	while (p1.y <= p2.y)
+	while (p.y <= p2.y)
 	{
 		mlx_pixel_put(mlxd.mlx_ptr, mlxd.win_ptr, p.x, p.y, 0xFFFFFF);
-		p1.y++;
+		p.y++;
 	}
 }
 
@@ -33,7 +33,6 @@ void	draw_gentle_slope(t_mlx mlxd, t_point p1, t_point p2, t_line_data ld)
 
 	p.x = p1.x;
 	p.y = p1.y;
-
 	ld.slope = f_abs(ld.slope);
 	if (p2.x < p1.x)
 	{

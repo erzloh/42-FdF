@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/17 11:32:51 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/17 14:31:10 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define FDF_H
 # include "minilibx_macos/mlx.h"
 # include "libft/libft.h"
+
+# define WIN_W 500
+# define WIN_H 500
+# define RAY_SIZE 50
+# define ORIGIN_X 50
+# define ORIGIN_Y 50
 
 typedef struct s_point
 {
@@ -36,12 +42,12 @@ typedef struct s_mlx
 	void	*win_ptr;
 }	t_mlx;
 
-// Draw functions
-void	draw_line(t_mlx mlxd, t_point p1, t_point p2);
-
 // Utils functions
 int		abs(int n);
 float	f_abs(float n);
 void	ft_swap(int *a, int *b);
+
+// Draw functions
+void	draw_line(t_mlx mlxd, t_point p1, t_point p2);
 
 #endif
