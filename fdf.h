@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/17 14:31:10 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/19 18:23:22 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void	ft_swap(int *a, int *b);
 
 // Draw functions
 void	draw_line(t_mlx mlxd, t_point p1, t_point p2);
+void	draw_grid(t_mlx mlxd, char **map);
 
 #endif

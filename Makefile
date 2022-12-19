@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+         #
+#    By: eric <eric@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 10:57:28 by eholzer           #+#    #+#              #
-#    Updated: 2022/12/17 11:25:28 by eholzer          ###   ########.fr        #
+#    Updated: 2022/12/19 18:23:54 by eric             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME	=	fdf
 
 SRCS	=	main.c \
 			fdf_utils_1.c \
-			draw_line.c
+			draw_line.c \
+			draw_grid.c
 
 OBJS	=	${SRCS:.c=.o}
 
