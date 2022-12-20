@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/20 10:37:47 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/20 14:13:06 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define TILE_HEIGHT 50
 # define ORIGIN_X 50
 # define ORIGIN_Y 50
-# define ORIGIN_X_ISO (WIN_W / 2)
+# define ORIGIN_X_ISO 500
 # define ORIGIN_Y_ISO 50
 
 typedef struct s_point
@@ -55,5 +55,9 @@ void	ft_swap(int *a, int *b);
 void	draw_line(t_mlx mlxd, t_point p1, t_point p2);
 void	draw_grid(t_mlx mlxd, char **map);
 void	draw_iso_grid(t_mlx mlxd, char **map);
+
+// Parsing functions
+int		get_tab_size(char *line);
+int		*get_tab_x(char *line);
 
 #endif
