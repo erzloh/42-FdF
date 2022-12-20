@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 10:32:23 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/17 14:52:31 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/20 10:38:39 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	draw_gentle_slope(t_mlx mlxd, t_point p1, t_point p2, t_line_data ld)
 	if (p2.x < p1.x)
 	{
 		ft_swap(&p1.x, &p2.x);
+		p.x = p1.x;
 		p.y = p2.y;
 	}
 	while (p.x <= p2.x)
