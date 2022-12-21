@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:55:25 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/21 10:48:05 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/21 11:49:17 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,33 +106,39 @@ int	get_tab_y_size(char *map_path)
 	return (size);
 }
 
-int	**parse_map(char *map_path)
+void	set_map(char *map_path, t_map *map)
 {
 	int		fd;
 	int		i;
 	char	*line;
+	char	got_tab_x_size;
+	int		**tab_2d;
 	int		*tab_x;
-	int		**map;
-	int		tab_y_size;
 
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
-		return (NULL);
-	tab_y_size = get_tab_y_size(map_path);	
-	map = malloc(sizeof(int *) * (tab_y_size + 1));
-	if (!map)
-		return (NULL);
+		return ;
+	got_tab_x_size = 0;
+	map->y_len = get_tab_y_size(map_path);
+	tab_2d = malloc(sizeof(int *) * (map->y_len + 1));
+	if (!tab_2d)
+		return ;
 	i = 0;
-	while (i < tab_y_size)
+	while (i < map->y_len)
 	{
 		line = get_next_line(fd);
+		if (!got_tab_x_size)
+		{
+			map->x_len = get_tab_x_size(line);
+			got_tab_x_size = 1;
+		}
 		tab_x = get_tab_x(line);
-		map[i] = tab_x;
+		tab_2d[i] = tab_x;
 		i++;
 	}
-	map[i] = NULL;
+	tab_2d[i] = NULL;
 
 	if (close(fd) == -1)
-		return (NULL);
-	return (map);
+		return ;
+	map->tab_2d = tab_2d;
 }
