@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/21 12:12:07 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/21 17:28:31 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 # define WIN_W 1000
 # define WIN_H 1000
 # define RAY_SIZE 50
-# define TILE_WIDTH 50
-# define TILE_HEIGHT 25
+# define TILE_WIDTH 48
+# define TILE_HEIGHT 36
 # define ORIGIN_X 50
 # define ORIGIN_Y 500
 # define ORIGIN_X_ISO 500
-# define ORIGIN_Y_ISO 50
+# define ORIGIN_Y_ISO 250
+
+# define COLOR_MAX 10
 
 typedef struct s_point
 {

@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 10:32:23 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/20 10:38:39 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/21 17:26:37 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,12 @@ void	draw_steep_slope(t_mlx mlxd, t_point p1, t_point p2, t_line_data ld)
 
 	p.x = p1.x;
 	p.y = p1.y;
-	ld.slope = 1 / ld.slope;
+	ld.slope = f_abs(1 / ld.slope);
 	if (p2.y < p1.y)
 	{
 		ft_swap(&p1.y, &p2.y);
 		p.x = p2.x;
+		p.y = p1.y;
 	}
 	while (p.y < p2.y)
 	{
