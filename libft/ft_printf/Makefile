@@ -6,7 +6,7 @@
 #    By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 17:17:57 by eholzer           #+#    #+#              #
-#    Updated: 2022/12/14 10:10:05 by eholzer          ###   ########.fr        #
+#    Updated: 2022/12/21 10:53:28 by eholzer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,13 +26,6 @@ CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
 
 all:		${NAME}
-
-${NAME}:	${OBJS}
-			make -C libft
-			cp libft/libft.a .
-			mv libft.a ${NAME}
-			ar rc ${NAME} ${OBJS}
-			ranlib ${NAME}
 
 ${NAME}:	${OBJS}
 			ar rc ${NAME} ${OBJS}

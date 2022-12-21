@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:45:15 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/20 14:27:23 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/21 10:57:52 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ int	main(void)
 	int		*tab_x;
 	int		tab_size;
 	int		i;
+	int		tab_y_size;
 
 	// ---------------------- test -----------------------------------
 	test = "0  0 10 10  0  0 10 10  0  0  0 10 10 10 10 10  0  0  0";
-	tab_size = get_tab_size(test);
+	tab_size = get_tab_x_size(test);
 	printf("size: %d\n", tab_size);
 	tab_x = get_tab_x(test);
 	i = 0;
@@ -42,6 +43,12 @@ int	main(void)
 		printf("tab_x[%d] = %d\n", i, tab_x[i]);
 		i++;
 	}
+	
+	tab_y_size = 0;
+	tab_y_size = get_tab_y_size("test_maps/42.fdf");
+	printf("tab_y_size = %d\n", tab_y_size);
+
+	//map = parse_map("test_maps/42.fdf");
 	// ---------------------- test -----------------------------------
 
 	map = ft_split("0000 0100 0000", ' ');

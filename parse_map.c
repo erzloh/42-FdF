@@ -6,13 +6,13 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:55:25 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/20 14:23:45 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/21 10:48:05 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	get_tab_size(char *line)
+int	get_tab_x_size(char *line)
 {
 	int	i;
 	int	size;
@@ -47,8 +47,10 @@ int	*get_tab_x(char *line)
 	i = 0;
 	j = 0;
 	n_len = 1;
-	tab_size = get_tab_size(line);
+	tab_size = get_tab_x_size(line);
 	tab_x = malloc(sizeof(int) * tab_size);
+	if (!tab_x)
+		return (NULL);
 	while (line[i])
 	{
 		if (line[i] != ' ')
@@ -74,18 +76,63 @@ int	*get_tab_x(char *line)
 	return (tab_x);
 }
 
-/* char	**parse_map(char **fdf_map)
+int	get_tab_y_size(char *map_path)
+{
+	int		fd;
+	char	buf[100 + 1];
+	int		char_read;
+	int		i;
+	int		size;
+
+	char_read = -1;
+	size = 0;
+	fd = open(map_path, O_RDONLY);
+	if (fd == -1)
+		return (-1);
+	while (char_read)
+	{
+		char_read = read(fd, buf, 100);
+		buf[char_read] = '\0';
+		i = 0;
+		while (buf[i])
+		{
+			if (buf[i] == '\n')
+				size++;
+			i++;
+		}
+	}
+	if (close(fd) == -1)
+		return (-1);
+	return (size);
+}
+
+int	**parse_map(char *map_path)
 {
 	int		fd;
 	int		i;
 	char	*line;
 	int		*tab_x;
+	int		**map;
+	int		tab_y_size;
 
-	fd = open(fdf_map, O_RDONLY);
+	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
-	line = get_next_line(fd);
-	tab_x = get_tab_x(line);
+	tab_y_size = get_tab_y_size(map_path);	
+	map = malloc(sizeof(int *) * (tab_y_size + 1));
+	if (!map)
+		return (NULL);
+	i = 0;
+	while (i < tab_y_size)
+	{
+		line = get_next_line(fd);
+		tab_x = get_tab_x(line);
+		map[i] = tab_x;
+		i++;
+	}
+	map[i] = NULL;
+
 	if (close(fd) == -1)
 		return (NULL);
-} */
+	return (map);
+}

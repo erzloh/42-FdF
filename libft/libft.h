@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:29:11 by eric              #+#    #+#             */
-/*   Updated: 2022/12/20 12:09:40 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/21 10:50:30 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 // Functions from the Libft
 char	*ft_strjoin_gnl(char *s1, char *s2);
 size_t	ft_strlen(const char *s);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
+// void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 // Utility functions
 int		check_errors(int fd, char **reserve_ptr);

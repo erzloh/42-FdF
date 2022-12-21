@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/20 14:13:06 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/21 10:57:16 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ void	draw_grid(t_mlx mlxd, char **map);
 void	draw_iso_grid(t_mlx mlxd, char **map);
 
 // Parsing functions
-int		get_tab_size(char *line);
+int		get_tab_x_size(char *line);
 int		*get_tab_x(char *line);
+int		get_tab_y_size(char *fdf_map);
+int		**parse_map(char *map_path);
 
 #endif

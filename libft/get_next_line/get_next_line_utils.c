@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 08:44:17 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/20 12:09:42 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/21 10:49:45 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+/* void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char		*uchar_dst;
 	const unsigned char	*uchar_src;
@@ -53,4 +53,4 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	while (n--)
 		*uchar_dst++ = *uchar_src++;
 	return (dst);
-}
+} */
