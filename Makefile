@@ -6,7 +6,7 @@
 #    By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 10:57:28 by eholzer           #+#    #+#              #
-#    Updated: 2022/12/20 14:02:58 by eholzer          ###   ########.fr        #
+#    Updated: 2022/12/23 08:55:28 by eholzer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,9 @@ CFLAGS	=	-Wall -Werror -Wextra
 
 MLX_DIR	=	minilibx_macos
 MLX		=	libmlx.a
+
+# MLX_DIR	=	minilibx_mms
+# MLX		=	libmlx.dylib
 
 LIB_DIR =	libft
 LIB		=	libft.a

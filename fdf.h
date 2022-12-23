@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/21 17:28:31 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/23 10:28:53 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@
 # define ORIGIN_X_ISO 500
 # define ORIGIN_Y_ISO 250
 
-# define COLOR_MAX 10
+// KEY SYMBOLS
+# define K_ESC 53
+# define K_O 31
+# define K_P 35
 
 typedef struct s_point
 {
@@ -46,6 +49,7 @@ typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	int		scaler;
 }	t_mlx;
 
 typedef struct s_map
@@ -54,6 +58,13 @@ typedef struct s_map
 	int	x_len;
 	int	y_len;
 }	t_map;
+
+typedef struct s_grid_data
+{
+	int	i;
+	int	j;
+	int	scaler;
+}	t_grid_data;
 
 // Utils functions
 int		abs(int n);
