@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:45:15 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/23 11:07:23 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/23 14:43:30 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	handle_input(int key, t_mlx *mlxd)
 	if (key == K_ESC)
 	{
 		mlx_destroy_window(mlxd->mlx_ptr, mlxd->win_ptr);
+		mlxd->win_ptr = NULL;
 		free(mlxd->mlx_ptr);
 		exit(0);
 	}
@@ -38,15 +39,43 @@ int	render(t_mlx *mlxd)
 	set_map("test_maps/42.fdf", &map);
 	if (mlxd->win_ptr != NULL)
 	{
+		render_background(&mlxd->img, BLACK);
 		draw_iso_grid(*mlxd, map);
+		mlx_put_image_to_window(mlxd->mlx_ptr, mlxd->win_ptr, mlxd->img.mlx_img, 0, 0);
 	}
 	return (0);
+}
+
+void	img_pix_put(t_img *img, int x, int y, int color)
+{
+	char	*pixel;
+
+	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	*(int *)pixel = color;
+}
+
+void	render_background(t_img *img, int color)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	while (j < WIN_H)
+	{
+		i = 0;
+		while (i < WIN_W)
+		{
+			img_pix_put(img, j, i, color);
+			i++;
+		}
+		j++;
+	}
 }
 
 int	main(void)
 {
 	t_mlx	mlxd;
-	// t_map	map;
+	// t_mapTR	map;
 	// int		x = 0;
 	// int		y = 0;
 	// t_point	p1;
@@ -82,10 +111,14 @@ int	main(void)
 	mlxd.win_ptr = mlx_new_window(mlxd.mlx_ptr, WIN_W, WIN_H, "FdF");
 	if (!mlxd.win_ptr)
 		return (1);
-	mlxd.scaler = 10;
+	mlxd.scaler = 2;
 	// draw_line(mlxd, p1, p2);
 	// draw_grid(mlxd, map);
 	// draw_iso_grid(mlxd, map);
+
+	mlxd.img.mlx_img = mlx_new_image(mlxd.mlx_ptr, WIN_W, WIN_H);
+	mlxd.img.addr = mlx_get_data_addr(mlxd.img.mlx_img, &mlxd.img.bpp, &mlxd.img.line_len, &mlxd.img.endian);
+
 	mlx_loop_hook(mlxd.mlx_ptr, &render, &mlxd);
 	mlx_key_hook(mlxd.win_ptr, handle_input, &mlxd);
 	mlx_loop(mlxd.mlx_ptr);
