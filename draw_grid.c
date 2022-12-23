@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:22:49 by eric              #+#    #+#             */
-/*   Updated: 2022/12/23 10:30:52 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/23 14:51:44 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,20 @@ void	draw_grid_lines(t_mlx mlxd, t_map map, t_grid_data g)
 	t_point	p1;
 	t_point	p2;
 
-	p1.x = ORIGIN_X_ISO + (g.i - g.j) * (TILE_WIDTH / 2);
-	p1.y = ORIGIN_Y_ISO + (g.i + g.j) * (TILE_HEIGHT / 2);
+	p1.x = mlxd.og_x + (g.i - g.j) * (TILE_WIDTH / 2);
+	p1.y = mlxd.og_y + (g.i + g.j) * (TILE_HEIGHT / 2);
 	p1.y -= (map.tab_2d[g.j][g.i] * g.scaler);
 	if (g.i + 1 < map.x_len)
 	{
-		p2.x = ORIGIN_X_ISO + ((g.i + 1) - g.j) * (TILE_WIDTH / 2);
-		p2.y = ORIGIN_Y_ISO + ((g.i + 1) + g.j) * (TILE_HEIGHT / 2);
+		p2.x = mlxd.og_x + ((g.i + 1) - g.j) * (TILE_WIDTH / 2);
+		p2.y = mlxd.og_y + ((g.i + 1) + g.j) * (TILE_HEIGHT / 2);
 		p2.y -= (map.tab_2d[g.j][g.i + 1] * g.scaler);
 		draw_line(mlxd, p1, p2);
 	}
 	if (g.j + 1 < map.y_len)
 	{
-		p2.x = ORIGIN_X_ISO + (g.i - (g.j + 1)) * (TILE_WIDTH / 2);
-		p2.y = ORIGIN_Y_ISO + (g.i + (g.j + 1)) * (TILE_HEIGHT / 2);
+		p2.x = mlxd.og_x + (g.i - (g.j + 1)) * (TILE_WIDTH / 2);
+		p2.y = mlxd.og_y + (g.i + (g.j + 1)) * (TILE_HEIGHT / 2);
 		p2.y -= (map.tab_2d[g.j + 1][g.i] * g.scaler);
 		draw_line(mlxd, p1, p2);
 	}

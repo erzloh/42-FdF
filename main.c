@@ -6,11 +6,33 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:45:15 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/23 14:43:30 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/23 15:55:55 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	move_grid(int *x, int *scaler, int speed)
+{
+	int	scaler_spd;
+
+	scaler_spd = 2;
+	if (*x >= WIN_W)
+		*x = 0;
+	*x += speed;
+
+	if (*scaler >= 20)
+	{
+		scaler_spd *= -1;
+		*scaler = 9;
+	}
+	if (*scaler <= -20)
+	{
+		scaler_spd *= -1;
+		*scaler = -9;
+	}
+	*scaler += scaler_spd;
+}
 
 int	handle_input(int key, t_mlx *mlxd)
 {
@@ -26,6 +48,15 @@ int	handle_input(int key, t_mlx *mlxd)
 		mlxd->scaler++;
 	if (key == K_P)
 		mlxd->scaler--;
+	if (key == K_W)
+		mlxd->og_y -= MOVE_DISTANCE;
+	if (key == K_S)
+		mlxd->og_y += MOVE_DISTANCE;
+	if (key == K_A)
+		mlxd->og_x -= MOVE_DISTANCE;
+	if (key == K_D)
+		mlxd->og_x += MOVE_DISTANCE;
+	// printf("%d\n", key);
 	return (0);
 }
 
@@ -41,7 +72,8 @@ int	render(t_mlx *mlxd)
 	{
 		render_background(&mlxd->img, BLACK);
 		draw_iso_grid(*mlxd, map);
-		mlx_put_image_to_window(mlxd->mlx_ptr, mlxd->win_ptr, mlxd->img.mlx_img, 0, 0);
+		mlx_put_image_to_window(mlxd->mlx_ptr, mlxd->win_ptr,
+			mlxd->img.mlx_img, 0, 0);
 	}
 	return (0);
 }
@@ -112,6 +144,8 @@ int	main(void)
 	if (!mlxd.win_ptr)
 		return (1);
 	mlxd.scaler = 2;
+	mlxd.og_x = 500;
+	mlxd.og_y = 250;
 	// draw_line(mlxd, p1, p2);
 	// draw_grid(mlxd, map);
 	// draw_iso_grid(mlxd, map);

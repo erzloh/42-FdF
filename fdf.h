@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/23 14:44:40 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/23 14:57:15 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,16 @@
 # define ORIGIN_Y 500
 # define ORIGIN_X_ISO 500
 # define ORIGIN_Y_ISO 250
+# define MOVE_DISTANCE 10
 
 // Key symbols
 # define K_ESC 53
 # define K_O 31
 # define K_P 35
+# define K_W 13
+# define K_S 1
+# define K_A 0
+# define K_D 2
 
 // Colors
 # define WHITE 0xFFFFFF
@@ -64,6 +69,8 @@ typedef struct s_mlx
 	void	*win_ptr;
 	int		scaler;
 	t_img	img;
+	int		og_x;
+	int		og_y;
 }	t_mlx;
 
 typedef struct s_map
