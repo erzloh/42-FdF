@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:45:15 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/23 15:55:55 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/24 12:26:23 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,18 @@ int	handle_input(int key, t_mlx *mlxd)
 		mlxd->og_x -= MOVE_DISTANCE;
 	if (key == K_D)
 		mlxd->og_x += MOVE_DISTANCE;
+	if (key == K_K)
+		mlxd->og_x += MOVE_DISTANCE;
+	if (key == K_L)
+		mlxd->og_x += MOVE_DISTANCE;
+	if (key == K_UP)
+		mlxd->tile_h -= MOVE_DISTANCE;
+	if (key == K_DOWN)
+		mlxd->tile_h += MOVE_DISTANCE;
+	if (key == K_LEFT)
+		mlxd->tile_w -= MOVE_DISTANCE;
+	if (key == K_RIGHT)
+		mlxd->tile_w += MOVE_DISTANCE;
 	// printf("%d\n", key);
 	return (0);
 }
@@ -146,6 +158,8 @@ int	main(void)
 	mlxd.scaler = 2;
 	mlxd.og_x = 500;
 	mlxd.og_y = 250;
+	mlxd.tile_w = TILE_WIDTH;
+	mlxd.tile_h = TILE_HEIGHT;
 	// draw_line(mlxd, p1, p2);
 	// draw_grid(mlxd, map);
 	// draw_iso_grid(mlxd, map);

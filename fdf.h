@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/23 14:57:15 by eholzer          ###   ########.fr       */
+/*   Updated: 2022/12/24 12:16:55 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@
 # define K_S 1
 # define K_A 0
 # define K_D 2
+# define K_K 40
+# define K_L 37
+# define K_UP 126
+# define K_DOWN 125
+# define K_RIGHT 124
+# define K_LEFT 123
 
 // Colors
 # define WHITE 0xFFFFFF
@@ -67,10 +73,13 @@ typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	int		scaler;
 	t_img	img;
+	int		scaler;
 	int		og_x;
 	int		og_y;
+	int		tile_w;
+	int		tile_h;
+
 }	t_mlx;
 
 typedef struct s_map
