@@ -6,14 +6,14 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:22:49 by eric              #+#    #+#             */
-/*   Updated: 2022/12/24 12:20:06 by eric             ###   ########.fr       */
+/*   Updated: 2022/12/24 18:41:20 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 // Draw a basic 2D grid
-void	draw_grid(t_mlx mlxd, t_map map)
+/* void	draw_grid(t_mlx mlxd, t_map map)
 {
 	int		i;
 	int		j;
@@ -44,7 +44,7 @@ void	draw_grid(t_mlx mlxd, t_map map)
 		}
 		j++;
 	}
-}
+} */
 
 void	draw_point(t_mlx mlxd, t_point p, int color)
 {

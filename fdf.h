@@ -6,7 +6,7 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/24 12:16:55 by eric             ###   ########.fr       */
+/*   Updated: 2022/12/24 22:19:37 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 # include "minilibx_macos/mlx.h"
 # include "libft/libft.h"
 
-# define WIN_W 1000
-# define WIN_H 1000
+// # define WIN_W 1366
+// # define WIN_H 768
+# define WIN_W 1920
+# define WIN_H 1200
 # define RAY_SIZE 50
-# define TILE_WIDTH 48
-# define TILE_HEIGHT 36
+# define TILE_WIDTH 4
+# define TILE_HEIGHT 4
 # define ORIGIN_X 50
 # define ORIGIN_Y 500
 # define ORIGIN_X_ISO 500
 # define ORIGIN_Y_ISO 250
-# define MOVE_DISTANCE 10
+# define MOVE_DISTANCE 40
+# define ZOOM_DISTANCE 2
 
 // Key symbols
 # define K_ESC 53
@@ -36,6 +39,7 @@
 # define K_D 2
 # define K_K 40
 # define K_L 37
+# define K_R 15
 # define K_UP 126
 # define K_DOWN 125
 # define K_RIGHT 124
@@ -44,6 +48,7 @@
 // Colors
 # define WHITE 0xFFFFFF
 # define BLACK 0x000000
+# define BLUE 0x021122
 
 typedef struct s_point
 {
@@ -69,6 +74,13 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
+typedef struct s_map
+{
+	int	**tab_2d;
+	int	x_len;
+	int	y_len;
+}	t_map;
+
 typedef struct s_mlx
 {
 	void	*mlx_ptr;
@@ -79,15 +91,9 @@ typedef struct s_mlx
 	int		og_y;
 	int		tile_w;
 	int		tile_h;
-
+	char	*map_path;
+	t_map	map;
 }	t_mlx;
-
-typedef struct s_map
-{
-	int	**tab_2d;
-	int	x_len;
-	int	y_len;
-}	t_map;
 
 typedef struct s_grid_data
 {

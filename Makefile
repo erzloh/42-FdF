@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+         #
+#    By: eric <eric@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 10:57:28 by eholzer           #+#    #+#              #
-#    Updated: 2022/12/23 08:55:28 by eholzer          ###   ########.fr        #
+#    Updated: 2022/12/24 21:31:48 by eric             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS	=	main.c \
 OBJS	=	${SRCS:.c=.o}
 
 CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra -g
 
 MLX_DIR	=	minilibx_macos
 MLX		=	libmlx.a
