@@ -24,7 +24,7 @@ You can choose a map among the .fdf files inside the 'maps' folder.
 - Use the `Up` and `Down` arrow keys to decrease the height of a 2D tile.
 - Use `O` and `P` to increase or decrease the altitude of the elevated points.
 
-## Examples of an input file
+## Example of an input file
 ```C
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
