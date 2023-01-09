@@ -6,14 +6,14 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2023/01/09 11:43:47 by eholzer          ###   ########.fr       */
+/*   Updated: 2023/01/09 14:06:33 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# include "minilibx_macos/mlx.h"
-# include "libft/libft.h"
+# include "../minilibx_macos/mlx.h"
+# include "../libft/libft.h"
 
 // # define WIN_W 1366
 // # define WIN_H 768
