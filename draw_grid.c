@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_grid.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:22:49 by eric              #+#    #+#             */
-/*   Updated: 2022/12/24 18:41:20 by eric             ###   ########.fr       */
+/*   Updated: 2023/01/09 08:43:36 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 	}
 } */
 
-void	draw_point(t_mlx mlxd, t_point p, int color)
+/* void	draw_point(t_mlx mlxd, t_point p, int color)
 {
 	mlx_pixel_put(mlxd.mlx_ptr, mlxd.win_ptr, p.x, p.y, color);
 	mlx_pixel_put(mlxd.mlx_ptr, mlxd.win_ptr, p.x + 1, p.y, color);
@@ -57,7 +57,7 @@ void	draw_point(t_mlx mlxd, t_point p, int color)
 	mlx_pixel_put(mlxd.mlx_ptr, mlxd.win_ptr, p.x, p.y + 2, color);
 	mlx_pixel_put(mlxd.mlx_ptr, mlxd.win_ptr, p.x, p.y - 1, color);
 	mlx_pixel_put(mlxd.mlx_ptr, mlxd.win_ptr, p.x, p.y - 2, color);
-}
+} */
 
 void	draw_grid_lines(t_mlx mlxd, t_map map, t_grid_data g)
 {

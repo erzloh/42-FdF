@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:30:18 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/24 22:19:37 by eric             ###   ########.fr       */
+/*   Updated: 2023/01/09 11:43:47 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@
 # define WHITE 0xFFFFFF
 # define BLACK 0x000000
 # define BLUE 0x021122
+
+// Error numbers
+# define OPEN_ERROR -1
+# define CLOSE_ERROR -2
+# define MALLOC_ERROR -3
 
 typedef struct s_point
 {
@@ -102,21 +107,40 @@ typedef struct s_grid_data
 	int	scaler;
 }	t_grid_data;
 
+typedef struct s_tab_x
+{
+	int		i;
+	int		j;
+	int		n_len;
+	int		*tab;
+	char	*tmp_str;
+	int		size;
+}	t_tab_x;
+
 // Utils functions
 int		abs(int n);
 float	f_abs(float n);
 void	ft_swap(int *a, int *b);
+void	print_map(t_map map);
 
 // Draw functions
+void	draw_vertical_line(t_mlx mlxd, t_point p1, t_point p2);
+void	draw_gentle_slope(t_mlx mlxd, t_point p1, t_point p2, t_line_data ld);
+void	draw_steep_slope(t_mlx mlxd, t_point p1, t_point p2, t_line_data ld);
 void	draw_line(t_mlx mlxd, t_point p1, t_point p2);
-void	draw_grid(t_mlx mlxd, t_map map);
+
+void	draw_grid_lines(t_mlx mlxd, t_map map, t_grid_data g);
 void	draw_iso_grid(t_mlx mlxd, t_map map);
+// void	draw_grid(t_mlx mlxd, t_map map);
+// void	draw_point(t_mlx mlxd, t_point p, int color);
 
 // Parsing functions
 int		get_tab_x_size(char *line);
+void	set_tab_x(char *line, t_tab_x *tab);
 int		*get_tab_x(char *line);
 int		get_tab_y_size(char *fdf_map);
-void	set_map(char *map_path, t_map *map);
+int		**create_tab_2d(t_map *map, int fd);
+int		set_map(char *map_path, t_map *map);
 
 // Render functions
 void	img_pix_put(t_img *img, int x, int y, int color);

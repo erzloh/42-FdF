@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:55:25 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/21 11:49:17 by eholzer          ###   ########.fr       */
+/*   Updated: 2023/01/09 10:51:19 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,45 +35,46 @@ int	get_tab_x_size(char *line)
 	return (size);
 }
 
-int	*get_tab_x(char *line)
+void	set_tab_x(char *line, t_tab_x *tab)
 {
-	int		i;
-	int		j;
-	int		n_len;
-	int		*tab_x;
-	char	*tmp_str;
-	int		tab_size;
-
-	i = 0;
-	j = 0;
-	n_len = 1;
-	tab_size = get_tab_x_size(line);
-	tab_x = malloc(sizeof(int) * tab_size);
-	if (!tab_x)
-		return (NULL);
-	while (line[i])
+	while (line[tab->i])
 	{
-		if (line[i] != ' ')
+		if (line[tab->i] != ' ')
 		{
-			if (line[i + 1] != ' ' && line[i + 1])
-				n_len++;
+			if (line[tab->i + 1] != ' ' && line[tab->i + 1])
+				tab->n_len++;
 			else
 			{
-				if (n_len > 1)
+				if (tab->n_len > 1)
 				{
-					tmp_str = ft_substr(line, i - n_len + 1, n_len);
-					tab_x[j] = ft_atoi(tmp_str);
-					free(tmp_str);
-					n_len = 1;
+					tab->tmp_str = ft_substr(line,
+							tab->i - tab->n_len + 1, tab->n_len);
+					tab->tab[tab->j] = ft_atoi(tab->tmp_str);
+					free(tab->tmp_str);
+					tab->n_len = 1;
 				}
 				else
-					tab_x[j] = line[i] - '0';
-				j++;
+					tab->tab[tab->j] = line[tab->i] - '0';
+				tab->j++;
 			}
 		}
-		i++;
+		tab->i++;
 	}
-	return (tab_x);
+}
+
+int	*get_tab_x(char *line)
+{
+	t_tab_x	tab;
+
+	tab.i = 0;
+	tab.j = 0;
+	tab.n_len = 1;
+	tab.size = get_tab_x_size(line);
+	tab.tab = malloc(sizeof(int) * tab.size);
+	if (!tab.tab)
+		return (NULL);
+	set_tab_x(line, &tab);
+	return (tab.tab);
 }
 
 int	get_tab_y_size(char *map_path)
@@ -88,42 +89,34 @@ int	get_tab_y_size(char *map_path)
 	size = 0;
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
-		return (-1);
+		return (OPEN_ERROR);
 	while (char_read)
 	{
 		char_read = read(fd, buf, 100);
 		buf[char_read] = '\0';
-		i = 0;
-		while (buf[i])
-		{
+		i = -1;
+		while (buf[++i])
 			if (buf[i] == '\n')
 				size++;
-			i++;
-		}
 	}
 	if (close(fd) == -1)
-		return (-1);
+		return (CLOSE_ERROR);
 	return (size);
 }
 
-void	set_map(char *map_path, t_map *map)
+int	**create_tab_2d(t_map *map, int fd)
 {
-	int		fd;
 	int		i;
 	char	*line;
 	char	got_tab_x_size;
-	int		**tab_2d;
 	int		*tab_x;
+	int		**tab_2d;
 
-	fd = open(map_path, O_RDONLY);
-	if (fd == -1)
-		return ;
 	got_tab_x_size = 0;
-	map->y_len = get_tab_y_size(map_path);
+	i = 0;
 	tab_2d = malloc(sizeof(int *) * (map->y_len + 1));
 	if (!tab_2d)
-		return ;
-	i = 0;
+		return (NULL);
 	while (i < map->y_len)
 	{
 		line = get_next_line(fd);
@@ -137,8 +130,5 @@ void	set_map(char *map_path, t_map *map)
 		i++;
 	}
 	tab_2d[i] = NULL;
-
-	if (close(fd) == -1)
-		return ;
-	map->tab_2d = tab_2d;
+	return (tab_2d);
 }

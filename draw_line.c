@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 10:32:23 by eholzer           #+#    #+#             */
-/*   Updated: 2022/12/23 14:33:09 by eholzer          ###   ########.fr       */
+/*   Updated: 2023/01/09 08:43:47 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	draw_vertical_line(t_mlx mlxd, t_point p1, t_point p2)
 		ft_swap(&p1.y, &p2.y);
 	while (p.y <= p2.y)
 	{
-		// mlx_pixel_put(mlxd.mlx_ptr, mlxd.win_ptr, p.x, p.y, 0xFFFFFF);
 		img_pix_put(&mlxd.img, p.x, p.y, WHITE);
 		p.y++;
 	}
@@ -43,7 +42,6 @@ void	draw_gentle_slope(t_mlx mlxd, t_point p1, t_point p2, t_line_data ld)
 	}
 	while (p.x <= p2.x)
 	{
-		// mlx_pixel_put(mlxd.mlx_ptr, mlxd.win_ptr, p.x, p.y, 0xFFFFFF);
 		img_pix_put(&mlxd.img, p.x, p.y, WHITE);
 		ld.offset += ld.slope;
 		if (ld.offset >= 0.5)
@@ -70,7 +68,6 @@ void	draw_steep_slope(t_mlx mlxd, t_point p1, t_point p2, t_line_data ld)
 	}
 	while (p.y < p2.y)
 	{
-		// mlx_pixel_put(mlxd.mlx_ptr, mlxd.win_ptr, p.x, p.y, 0xFFFFFF);
 		img_pix_put(&mlxd.img, p.x, p.y, WHITE);
 		ld.offset += ld.slope;
 		if (ld.offset >= 0.5)

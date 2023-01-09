@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eric <eric@student.42.fr>                  +#+  +:+       +#+         #
+#    By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 10:57:28 by eholzer           #+#    #+#              #
-#    Updated: 2022/12/24 21:31:48 by eric             ###   ########.fr        #
+#    Updated: 2023/01/09 11:39:40 by eholzer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,10 @@ SRCS	=	main.c \
 			fdf_utils_1.c \
 			draw_line.c \
 			draw_grid.c \
-			parse_map.c
+			parse_map.c \
+			parse_map2.c \
+			handle_input.c \
+			render_functions.c
 
 OBJS	=	${SRCS:.c=.o}
 
@@ -25,9 +28,6 @@ CFLAGS	=	-Wall -Werror -Wextra -g
 
 MLX_DIR	=	minilibx_macos
 MLX		=	libmlx.a
-
-# MLX_DIR	=	minilibx_mms
-# MLX		=	libmlx.dylib
 
 LIB_DIR =	libft
 LIB		=	libft.a
