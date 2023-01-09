@@ -8,6 +8,7 @@ FdF stands for "Fil de Fer", which means "wireframe model" in French. A wirefram
 
 The purpose of the project is to make a program that renders a 3D wireframe model out of a text file as input. The input text file contains the height value of each point of the map.
 
+The library used to render graphics is the MiniLibX, a library created by the 42 School. It is a very simple library that comes with functions to open a window, draw a pixel and handle user inputs. 
 ## Build
 Run the command `make` inside the repository to build the executable named 'fdf'.
 
