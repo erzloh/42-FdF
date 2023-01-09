@@ -1,7 +1,7 @@
 # 42-FdF
 A 3D wireframe model viewer.	
 
-![Capture d’écran 2022-12-23 à 23 04 17](https://user-images.githubusercontent.com/48589114/209409414-74a29035-cfce-45ed-9d7b-d32ee2d0f1ec.png)
+<img width="804" alt="Screen Shot 2023-01-09 at 3 17 13 PM" src="https://user-images.githubusercontent.com/48589114/211329245-32217359-5188-4d07-946c-47b1017ac943.png">
 
 ## About the project
 FdF stands for "Fil de Fer", which means "wireframe model" in French. A wireframe model is a visual representation of a three-dimensional physical object used in 3D computer graphics.
@@ -24,3 +24,7 @@ You can choose a map among the .fdf files inside the 'maps' folder.
 - Use `O` and `P` to increase or decrease the altitude of the elevated points.
 
 ## Screenshots
+<img width="1483" alt="Screen Shot 2023-01-09 at 3 26 03 PM" src="https://user-images.githubusercontent.com/48589114/211330911-01efce30-04c7-4515-b5ff-9e2c070cb983.png">
+<img width="987" alt="Screen Shot 2023-01-09 at 3 21 01 PM" src="https://user-images.githubusercontent.com/48589114/211329819-71c49a1f-c6f0-4950-9784-529abe8b8b88.png">
+<img width="967" alt="Screen Shot 2023-01-09 at 3 21 53 PM" src="https://user-images.githubusercontent.com/48589114/211329947-e950c2d3-ca56-4dc4-beca-42ab81d96f5e.png">
+<img width="1765" alt="Screen Shot 2023-01-09 at 3 24 45 PM" src="https://user-images.githubusercontent.com/48589114/211330631-5fcd3a3a-c52e-49f5-acf3-2d83617c2922.png">
