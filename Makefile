@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+         #
+#    By: eric <eric@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 10:57:28 by eholzer           #+#    #+#              #
-#    Updated: 2023/01/09 14:36:56 by eholzer          ###   ########.fr        #
+#    Updated: 2023/01/13 15:49:51 by eric             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS_LIST	=	main.c \
 SRCS		=	${addprefix ${SRCS_DIR}, ${SRCS_LIST}}
 
 OBJS_DIR	=	objects/
-OBJS_LIST	=	${patsubst %.c, %.o, ${SRCS_LIST}}
+OBJS_LIST	=	${SRCS_LIST:.c=.o}
 OBJS		=	${addprefix ${OBJS_DIR}, ${OBJS_LIST}}
 
 CC			=	gcc
