@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 08:45:15 by eholzer           #+#    #+#             */
-/*   Updated: 2023/01/16 15:58:56 by eholzer          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:25:13 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int ac, char **av)
 	map_error = set_map(mlxd.map_path, &mlxd.map);
 	handle_map_errors(map_error);
 	mlx_loop_hook(mlxd.mlx_ptr, &render, &mlxd);
-	mlx_key_hook(mlxd.win_ptr, handle_input, &mlxd);
+	mlx_hook(mlxd.win_ptr, 2, 0, handle_input, &mlxd);
 	mlx_loop(mlxd.mlx_ptr);
 	free(mlxd.mlx_ptr);
 	return (0);

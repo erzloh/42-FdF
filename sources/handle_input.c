@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:54:21 by eholzer           #+#    #+#             */
-/*   Updated: 2023/01/16 16:18:43 by eholzer          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:24:06 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ int	handle_input(int key, t_mlx *mlxd)
 	handle_movement(key, mlxd);
 	handle_zoom(key, mlxd);
 	handle_reset(key, mlxd);
+	render(mlxd);
 	return (0);
 }
