@@ -8,7 +8,7 @@
         "type": "lldb",
         "request": "launch",
         "program": "fdf",
-        "args": ["test_maps/pyra.fdf"],
+        "args": ["test.fdf"],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
         "environment": [],

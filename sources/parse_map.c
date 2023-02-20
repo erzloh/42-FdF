@@ -6,7 +6,7 @@
 /*   By: eholzer <eholzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:55:25 by eholzer           #+#    #+#             */
-/*   Updated: 2023/01/09 10:51:19 by eholzer          ###   ########.fr       */
+/*   Updated: 2023/02/20 15:57:34 by eholzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ int	*get_tab_x(char *line)
 	tab.size = get_tab_x_size(line);
 	tab.tab = malloc(sizeof(int) * tab.size);
 	if (!tab.tab)
-		return (NULL);
+		exit(1);
+		//return (NULL);
 	set_tab_x(line, &tab);
 	return (tab.tab);
 }
@@ -113,11 +114,11 @@ int	**create_tab_2d(t_map *map, int fd)
 	int		**tab_2d;
 
 	got_tab_x_size = 0;
-	i = 0;
+	i = -1;
 	tab_2d = malloc(sizeof(int *) * (map->y_len + 1));
 	if (!tab_2d)
 		return (NULL);
-	while (i < map->y_len)
+	while (++i < map->y_len)
 	{
 		line = get_next_line(fd);
 		if (!got_tab_x_size)
@@ -127,7 +128,7 @@ int	**create_tab_2d(t_map *map, int fd)
 		}
 		tab_x = get_tab_x(line);
 		tab_2d[i] = tab_x;
-		i++;
+		free(line);
 	}
 	tab_2d[i] = NULL;
 	return (tab_2d);
